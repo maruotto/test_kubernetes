@@ -4,7 +4,7 @@ import predict
 
 app = Flask(__name__)
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST', 'GET'])
 def run():
     try:
         '''
