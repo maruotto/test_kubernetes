@@ -1,12 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: predict-test-kubernetes
+  name: glucose-predictor-service
   labels:
-    app: test-kubernetes
+    app: glucose-predictor
 spec:
-  ports:
-    - port: 8080
   selector:
-    app: test-kubernetes
+    app: glucose-predictor
   type: NodePort
+  ports:
+    - name: http
+      port: 8501
+      targetPort: 8501
+
+
