@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: glucose-predictor-service
+  name: "552-service"
   labels:
-    app: glucose-predictor
+    app: "552"
 spec:
   selector:
-    app: glucose-predictor
+    app: "552"
   type: NodePort
   ports:
     - name: http

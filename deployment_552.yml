@@ -1,22 +1,23 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: glucose-predictor-deployment
+  name: "552-deployment"
   labels:
-    app: glucose-predictor
+    app: "552"
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: glucose-predictor
+      app: "552"
   template:
     metadata:
       labels:
-        app: glucose-predictor
+        app: "552"
     spec:
       containers:
-      - name: glucose
-        image: nanigo/glucose:latest
+      - name: "552"
+        image: nanigo/552:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8501
+

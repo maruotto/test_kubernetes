@@ -15,7 +15,7 @@ python server.py
 ```
 Deploy model using kubectl
 ```sh
-kubectl apply -f deployment.yml
+kubectl apply -f deployment_540.yml
 ```
 
 License
