@@ -1,0 +1,93 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "svc-540-service"
+  labels:
+    app: "540"
+spec:
+  selector:
+    app: "540"
+  type: NodePort
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8501
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: "svc-559-service"
+  labels:
+    app: "559"
+spec:
+  selector:
+    app: "559"
+  type: NodePort
+  ports:
+    - name: http
+      port: 8081
+      targetPort: 8501
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "svc-567-service"
+  labels:
+    app: "567"
+spec:
+  selector:
+    app: "567"
+  type: NodePort
+  ports:
+    - name: http
+      port: 8082
+      targetPort: 8501
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "svc-544-service"
+  labels:
+    app: "544"
+spec:
+  selector:
+    app: "544"
+  type: NodePort
+  ports:
+    - name: http
+      port: 8083
+      targetPort: 8501
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "svc-552-service"
+  labels:
+    app: "552"
+spec:
+  selector:
+    app: "552"
+  type: NodePort
+  ports:
+    - name: http
+      port: 8084
+      targetPort: 8501
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "svc-563-service"
+  labels:
+    app: "563"
+spec:
+  selector:
+    app: "563"
+  type: NodePort
+  ports:
+    - name: http
+      port: 8085
+      targetPort: 8501
