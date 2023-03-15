@@ -3,49 +3,49 @@ kind: Ingress
 metadata:
   name: ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
     - host: glucose-predictor.info
       http:
         paths:
-        - path: /
+        - path: /uno
           pathType: Prefix
           backend:
             service:
               name: "svc-540-service"
               port:
                 number: 8080
-        - path: /
+        - path: /due
           pathType: Prefix
           backend:
             service:
               name: "svc-559-service"
               port:
                 number: 8081
-        - path: /
+        - path: /tre
           pathType: Prefix
           backend:
             service:
               name: "svc-567-service"
               port:
                 number: 8082
-        - path: /
+        - path: /quattro
           pathType: Prefix
           backend:
             service:
               name: "svc-544-service"
               port:
                 number: 8083
-        - path: /
+        - path: /cinque
           pathType: Prefix
           backend:
             service:
               name: "svc-552-service"
               port:
                 number: 8084
-        - path: /
+        - path: /sei
           pathType: Prefix
           backend:
             service:
