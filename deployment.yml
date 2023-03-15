@@ -1,0 +1,146 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: "540-deployment"
+  labels:
+    app: "540"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "540"
+  template:
+    metadata:
+      labels:
+        app: "540"
+    spec:
+      containers:
+      - name: "540"
+        image: nanigo/540:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8501
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "559-deployment"
+  labels:
+    app: "559"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "559"
+  template:
+    metadata:
+      labels:
+        app: "559"
+    spec:
+      containers:
+      - name: "559"
+        image: nanigo/559:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8501
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "544-deployment"
+  labels:
+    app: "544"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "544"
+  template:
+    metadata:
+      labels:
+        app: "544"
+    spec:
+      containers:
+      - name: "544"
+        image: maruotto/544:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8501
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "567-deployment"
+  labels:
+    app: "567"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "567"
+  template:
+    metadata:
+      labels:
+        app: "567"
+    spec:
+      containers:
+      - name: "567"
+        image: maruotto/567:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8501
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "552-deployment"
+  labels:
+    app: "552"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "552"
+  template:
+    metadata:
+      labels:
+        app: "552"
+    spec:
+      containers:
+      - name: "552"
+        image: fluigina/552:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8501
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "563-deployment"
+  labels:
+    app: "563"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "563"
+  template:
+    metadata:
+      labels:
+        app: "563"
+    spec:
+      containers:
+      - name: "563"
+        image: fluigina/563:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8501
