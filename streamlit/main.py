@@ -19,7 +19,10 @@ def inference(data):
 
 def inference(data, patient):
     headers = {"content-type": "application/json"}
-    json_response = requests.post('http://localhost:'+patient+'0/v1/models/' + patient + ':predict', data=data, headers=headers)
+    #json_response = requests.post('http://localhost:'+patient+'0/v1/models/' + patient + ':predict', data=data, headers=headers)
+    json_response = requests.post('http://127.0.0.1/' + patient + '/v1/models/' + patient + ':predict', data=data,
+                                  headers=headers)
+    print(json_response)
     predictions = np.array(json.loads(json_response.text)['predictions'])
     return predictions
 
