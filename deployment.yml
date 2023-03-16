@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
       - name: "559"
-        image: nanigo/559:latest
+        image: maruotto/559:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8501
