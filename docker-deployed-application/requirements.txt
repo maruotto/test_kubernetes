@@ -1,5 +1,5 @@
-flask
-keras
+streamlit
+bokeh
+Pillow
+pandas
 numpy
-tensorflow
-nltk

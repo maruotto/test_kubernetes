@@ -1,10 +1,10 @@
-import pandas as pd
-from PIL import Image
 import streamlit as st
 import json
 import requests
-import numpy as np
 from bokeh.plotting import figure
+from PIL import Image
+import pandas as pd
+import numpy as np
 
 def plot(glucose_levels, time):
     time_data = pd.DataFrame(time, columns=['time (min)'])

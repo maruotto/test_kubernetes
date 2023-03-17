@@ -1,30 +1,14 @@
-# Deploying models Using Kubernetes
-## IMDB - Sentiment analysis Keras and TensorFlow 
-Based on https://www.kaggle.com/drscarlat/imdb-sentiment-analysis-keras-and-tensorflow and the book [Deep Learning with Python by Francois Chollet](https://www.amazon.com/Deep-Learning-Python-Francois-Chollet/dp/1617294438)
-
 ## Usage
-Train the model using
-
- ```python
-python train.py
+Build docker image
+ ```sh
+docker build --tag glucose-prediction . 
 ```
-
-Run the Flask Server using
- ```python
-python server.py
+Run docker image
+ ```sh
+docker run --publish 8501:8501 --name=glucose-prediction-web-app --net=minikube glucose-prediction
 ```
-Deploy model using kubectl
-```sh
-kubectl apply -f deployment_540.yml
-```
+To make the app work, it is mandatory to connect it to the
+microservices, these can be accessible through bridge connection. 
 
-License
-----
-
-MIT
-
-
-**Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
+In particular, the container is connected to minikube network. 
+On the same network is connected kubernetes cluster.
