@@ -1,30 +1,86 @@
-# Deploying models Using Kubernetes
-## IMDB - Sentiment analysis Keras and TensorFlow 
-Based on https://www.kaggle.com/drscarlat/imdb-sentiment-analysis-keras-and-tensorflow and the book [Deep Learning with Python by Francois Chollet](https://www.amazon.com/Deep-Learning-Python-Francois-Chollet/dp/1617294438)
-
+# Deploying microservices Using Kubernetes
 ## Usage
-Train the model using
+To deploy a cluster and simulate cloud architecture, this application uses minikube. 
+It creates a cluster with one slave node. All pods will 
+be spawned in it.
 
- ```python
-python train.py
+ ```sh
+minikube start
+```
+Tunnel, o allow external connection to the cluster and 
+expose the cluster itself using its external ip.
+This command requires sudo (or administrator priviledges)
+because it will open port<1024. [port 80 in this case]
+Necessary only if using an ingress.
+ ```sh
+minikube tunnel
 ```
 
-Run the Flask Server using
- ```python
-python server.py
-```
-Deploy model using kubectl
+Spawn the deployments
+
+_use ```minikube kubectl -- args``` instead of ```kubectl args``` if 
+minikube is not set as default kubernetes cluster, or set it_
+ 
 ```sh
-kubectl apply -f deployment_540.yml
+ kubectl apply -f deployments.yml
 ```
 
-License
-----
+Spawn the services (one for each deployment)
+```sh
+ kubectl apply -f service.yml
+```
 
-MIT
+### Connecting to the services
+Spawn the ingress (one for all the services).
+The ingress will create a single entrypoint for 
+all the services. Moreover, it can be associated to a 
+registered domain, and some paths in it.
+```sh
+ kubectl apply -f service.yml
+```
+ OR
 
+Do manual port forwarding for each service (example for 
+patient 540).
+```sh
+kubectl port-forward svc/svc-540-service 5400:8081
+```
 
-**Free Software, Hell Yeah!**
+## How to create images used in deployment
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+Having saved tensorflow models (not in h5 format), 
+these are the steps (described for patient 540 and 
+replicated for all of them):
+
+- Run daemon docker container using _tensorflow/serving_ as image 
+and associate a name to this container.
+ ```shell
+docker run -d --name serving_540 tensorflow/serving
+```
+
+- copy model folder in the container, in the correct folder
+ ```shell
+docker cp /path/to/model/540 serving_540:/models/540
+```
+- change model name environment variable value to the correct one 
+(this name will be used later to do inference)
+```shell
+docker commit --change "ENV MODEL_NAME 540" serving_540 540
+```
+
+- kill the daemon
+```shell
+docker kill serving_540
+```
+
+### Docker hub publication
+- tag the image to a repository
+```shell
+docker tag serving_540:latest utente/540:latest 
+```
+
+- push to the previously created repository
+```sh
+docker push nanigo/nome_repository:latest
+```
 
