@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/../streamlit/.idea/SSC_webapp.iml" filepath="$PROJECT_DIR$/../streamlit/.idea/SSC_webapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/test_kubernetes.iml" filepath="$PROJECT_DIR$/.idea/test_kubernetes.iml" />
-    </modules>
-  </component>
-</project>
