@@ -8,7 +8,7 @@ from bokeh.plotting import figure
 
 def plot(glucose_levels, time):
     time_data = pd.DataFrame(time, columns=['time (min)'])
-    data = pd.DataFrame(glucose_levels, columns=['glucose'])
+    data = pd.DataFrame(glucose_levels, columns=['glucose (mmol/L)'])
     frames = [data, time_data]
     chart_data = pd.concat(frames,axis=1, join='inner')
     print(chart_data)
