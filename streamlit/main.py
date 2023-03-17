@@ -20,12 +20,6 @@ def define_time(length):
         time.append(i+1)
     return time
 
-def inference(data):
-    headers = {"content-type": "application/json"}
-    json_response = requests.post('http://localhost:28015/v1/models/glucose_predictor:predict', data=data, headers=headers)
-    predictions = np.array(json.loads(json_response.text)['predictions'])
-    return predictions
-
 def inference(data, patient):
     headers = {"content-type": "application/json"}
     json_response = requests.post('http://127.0.0.1/' + patient + '/v1/models/' + patient + ':predict', data=data,
