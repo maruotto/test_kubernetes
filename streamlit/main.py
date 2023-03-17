@@ -11,7 +11,7 @@ def plot(glucose_levels, time):
     data = pd.DataFrame(glucose_levels, columns=['glucose (mmol/L)'])
     frames = [data, time_data]
     chart_data = pd.concat(frames,axis=1, join='inner')
-    st.line_chart(data = chart_data, x='time', y = 'glucose')
+    st.line_chart(data = chart_data, x='time (min)', y = 'glucose (mmol/L)')
 
 def define_time(length):
     time = []
