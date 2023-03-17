@@ -21,7 +21,7 @@ def define_time(length):
 
 def inference(data, patient):
     headers = {"content-type": "application/json"}
-    json_response = requests.post('http://127.0.0.1/' + patient + '/v1/models/' + patient + ':predict', data=data,
+    json_response = requests.post('http://192.168.49.2/' + patient + '/v1/models/' + patient + ':predict', data=data,
                                   headers=headers)
     print(json_response)
     predictions = np.array(json.loads(json_response.text)['predictions'])
@@ -37,9 +37,9 @@ def read_csv(csv_upload):
 
 st.set_page_config(page_title="Glucose Predictor", layout="wide")
 st.title("Glucose Prediction")
-image = Image.open('photoheader.png')
+image = Image.open('image/photoheader.png')
 st.image(image, use_column_width=True)
-image = Image.open('photo.jpg')
+image = Image.open('image/photo.jpg')
 st.sidebar.image(image, use_column_width=True)
 patient = st.sidebar.selectbox("Patient:",('540','544','552', '559', '563', '567'), key="patient")
 csv_upload = st.sidebar.file_uploader("Upload a csv file", type=["csv", "CSV"])
