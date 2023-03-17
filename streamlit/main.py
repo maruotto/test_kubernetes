@@ -13,16 +13,6 @@ def plot(glucose_levels, time):
     chart_data = pd.concat(frames,axis=1, join='inner')
     print(chart_data)
     st.line_chart(data = chart_data, x='time', y = 'glucose')
-    #p = figure(
-    #    title='Glucose Prediction',
-    #    x_axis_label='Time',
-    #    y_axis_label='Glucose')
-    #list = []
-    #for i in range(0, glucose_levels.shape[0]):
-    #    list.append(glucose_levels[i])
-
-    #p.line(time, list, legend_label='Glucose Level', line_width=5)
-    #st.bokeh_chart(p, use_container_width=True)
 
 def define_time(length):
     time = []
